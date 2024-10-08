@@ -6,11 +6,26 @@
     <meta name="descripton" content="" />
     <title>Document</title>
     <link rel="stylesheet" href="./assets/style.css" />
-    <script src="./assets/app.js" defer></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <div id="app">Jeg hedder {{ name }} og er {{ age }} år gammel</div>
+
+    <script>
+      const { createApp, ref } = Vue;
+
+      createApp({
+        setup() {
+          const name = ref("Amalie");
+          const age = ref(24);
+          console.log("Navnet er" + name.value);
+
+          return {
+            name,
+            age,
+          };
+        },
+      }).mount("#app");
+    </script>
   </body>
 </html>
